@@ -25,7 +25,8 @@ class positionApp extends Component {
     }
 
     handleSubmit() {
-        this.socket = mySocket("http://localhost:10002/");
+        // this.socket = mySocket("http://localhost:10002");
+        this.socket = mySocket("http://mediaworks-server.herokuapp.com/");
         this.socket.emit("grabUsers", this.state.positionSelect);
         this.socket.on("displayUsers", function(data) {
             console.log(data);
