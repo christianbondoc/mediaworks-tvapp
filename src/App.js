@@ -16,11 +16,13 @@ class App extends Component {
         super(props);
         this.state = {
             pageNum: 0,
-            userInput: ''
+            userInput: '',
+            selectedUser: []
         };
         
         this.signIn = this.signIn.bind(this);
         this.changePage = this.changePage.bind(this);
+        this.changePagePC = this.changePagePC.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.studentIDInput = this.studentIDInput.bind(this);
     }
@@ -37,6 +39,14 @@ class App extends Component {
     changePage(num) {
         this.setState({
             pageNum: num,
+        });
+    }
+
+    // Function to change the page from position to confirm
+    changePagePC(user) {
+        this.setState({
+            pageNum: 3,
+            selectedUser: user
         });
     }
 
@@ -86,7 +96,7 @@ class App extends Component {
         }
         else if (pageNum == 2) {
             comp = <PositionApp 
-                        changePage={this.changePage}
+                        changePagePC={this.changePagePC}
                         userInput={this.state.userInput}
                     />;
         }
@@ -94,6 +104,7 @@ class App extends Component {
             comp = <ConfirmApp 
                         changePage={this.changePage}
                         userInput={this.state.userInput}
+                        selectedUser={this.state.selectedUser}
                     />;
         }
         
