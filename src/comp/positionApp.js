@@ -15,7 +15,6 @@ class positionApp extends Component {
 
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.changePage = this.changePage.bind(this);
     }
 
     handleSearch(ev) {
