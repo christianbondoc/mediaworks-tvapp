@@ -183,6 +183,7 @@ html, body {
   opacity: 0.5;
   transform: rotate(-20deg);
   overflow: hidden;
+  pointer-events: none;
 }
 @keyframes blueSquareAni {
 
