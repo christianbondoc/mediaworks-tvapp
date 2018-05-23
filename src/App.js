@@ -95,7 +95,7 @@ class App extends Component {
         }
         else if (pageNum == 2) {
             comp = <PositionApp 
-                        changePage={this.changePage}
+                        changePagePC={this.changePagePC}
                         userInput={this.state.userInput}
                     />;
         }
