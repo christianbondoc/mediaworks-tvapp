@@ -78,7 +78,7 @@ class positionApp extends Component {
                 return (
                     <button key={index} className="positionBtn" type="submit" onClick={this.changePage.bind(this, 3)}> {data.name} - {data.program} </button>
                 );
-            });
+            }).bind(this);
 
             positionComp = (
                 <div className="wrapper-row">
