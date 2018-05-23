@@ -77,7 +77,7 @@ class App extends Component {
                             }}
                     />
                     <button className="startBtn" type="submit" onClick={this.signIn}>Sign in</button>
-                    <h7 className="signupLink"> Head to (siteName) to register </h7>
+                    <h7 className="signupLink"> Click <a href="http://mediaworks-web-app.herokuapp.com/" target="_blank">Here</a>to register </h7>
                     <div className="blueSquare"></div>
                 </div>
                 
