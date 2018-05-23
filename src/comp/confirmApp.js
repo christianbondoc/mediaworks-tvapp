@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 // import styles from './styles/confirmApp.css';
 import styles from './styles/App.css';
 
+// Import socket.io-client.
+import mySocket from 'socket.io-client'; 
+
 class confirmApp extends Component {
     
     constructor(props) {
@@ -10,6 +13,18 @@ class confirmApp extends Component {
             confirmNum: 0
         };
 
+        this.sendMail = this.sendMail.bind(this);
+    }
+
+    sendMail(email) {
+        this.socket = mySocket("https://mediaworks-server.herokuapp.com/");
+        this.socket.emit("sendMail", this.props.selectedUser.bEmail);
+        this.socket.on("successfullySent", function(data) {
+            console.log('Mail sent.');
+            this.setState({
+                confirmNum: 1
+            });
+        }.bind(this));
     }
 
     render() {
@@ -17,6 +32,7 @@ class confirmApp extends Component {
         var confirmNum = this.state.confirmNum;
 
         var selectedUsername = this.props.selectedUser.name;
+        var userEmail = this.props.selectedUser.bEmail;
 
         if (confirmNum === 0) {
         
@@ -25,7 +41,7 @@ class confirmApp extends Component {
             <div className="logoImg"></div>
             <h1 className="mainTxt">Do you want to email</h1>
             <h2 className="secondaryTxt"> {selectedUsername} </h2> 
-            <button className="confirmBtn" type="submit" onClick={((()=> {this.setState({confirmNum: 1})}))}>Yes</button>
+            <button className="confirmBtn" type="submit" onClick={this.sendMail.bind(this, userEmail)}>Yes</button>
         </div>
             );
         }  else if (confirmNum === 1){
