@@ -93,9 +93,6 @@ class positionApp extends Component {
                 <div className="container right">
                     <div className="content">
                         <h1 className="intro-center"> Here are the available people for 'hire' </h1>
-                        <h2 className="positionB">
-                        Create a function here to list out choices from DB
-                        </h2>
                     <div className="posContainer">
                         {usersSearched}
                     </div>
