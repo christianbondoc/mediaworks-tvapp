@@ -22,6 +22,7 @@ class App extends Component {
         
         this.signIn = this.signIn.bind(this);
         this.changePage = this.changePage.bind(this);
+        this.changePagePC = this.changePagePC.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.studentIDInput = this.studentIDInput.bind(this);
     }
