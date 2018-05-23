@@ -103,7 +103,7 @@ class App extends Component {
             comp = <ConfirmApp 
                         changePage={this.changePage}
                         userInput={this.state.userInput}
-                        selectedUser={this.selectedUser}
+                        selectedUser={this.state.selectedUser}
                     />;
         }
         
