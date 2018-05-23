@@ -16,13 +16,15 @@ class confirmApp extends Component {
         var confirmComp;
         var confirmNum = this.state.confirmNum;
 
+        var selectedUsername = this.props.selectedUser.name;
+
         if (confirmNum === 0) {
         
         confirmComp = (
         <div className="wrapper">
             <div className="logoImg"></div>
             <h1 className="mainTxt">Do you want to email</h1>
-            <h2 className="secondaryTxt"> (Person Name) </h2> 
+            <h2 className="secondaryTxt"> {selectedUsername} </h2> 
             <button className="confirmBtn" type="submit" onClick={((()=> {this.setState({confirmNum: 1})}))}>Yes</button>
         </div>
             );
@@ -31,7 +33,7 @@ class confirmApp extends Component {
         <div className = "wrapper">
             <h1 className="mainTxt">Thank you for using HIVE </h1>
             <div className="logoImg"></div>
-            <h1 className="mainTxt">(studentB) will be contacted </h1>
+            <h1 className="mainTxt">{selectedUsername} will be contacted </h1>
             <button className="confirmBtn" type="submit" onClick={this.props.changePage.bind(this, 0)}>Reset</button>
         </div>
             )
