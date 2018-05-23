@@ -37,8 +37,9 @@ class positionApp extends Component {
         }.bind(this));
     }
 
-    changePage(num) {
+    changePage() {
         this.props.changePage.bind(this, 3);
+        console.log('gets here.');
     }
 
     render() {
@@ -76,7 +77,7 @@ class positionApp extends Component {
         } else if (positionNum === 1) {
             var usersSearched = this.state.usersSearched.map( (data, index) => {
                 return (
-                    <button key={index} className="positionBtn" type="submit" onClick={this.changePage.bind(this, 3)}> {data.name} - {data.program} </button>
+                    <button key={index} className="positionBtn" type="submit" onClick={this.changePage}> {data.name} - {data.program} </button>
                 );
             });
 
